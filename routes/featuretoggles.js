@@ -5,6 +5,7 @@ const router = express.Router();
 
 // get all feature toggles from user
 router.post('/getStatusAll', (req, res) => {
+    console.log("Call to featureToggles/getStatusAll");
     if (!req.body.hasOwnProperty('email')) return res.status(400).json({success: false, msg: 'email missing from request'});
     if (!req.body.hasOwnProperty('password')) return res.status(400).json({success: false, msg: 'password missing from request'});
 
@@ -35,6 +36,8 @@ router.post('/getStatusAll', (req, res) => {
 
 // get one feature toggle from user, by secretKey
 router.post('/getStatusOne', (req, res) => {
+    console.log("Call to featureToggles/getStatusOne");
+
     // Simple proper format checking
     if (!req.body.hasOwnProperty('email')) return res.status(400).json({success: false, msg: 'email missing from request'});
     if (!req.body.hasOwnProperty('password')) return res.status(400).json({success: false, msg: 'password missing from request'});
@@ -79,6 +82,8 @@ router.post('/getStatusOne', (req, res) => {
 
 // create new feature toggle on user
 router.post('/createNew', (req, res) => {
+    console.log("Call to featureToggles/createNew");
+
     // Simple proper format checking
     if (!req.body.hasOwnProperty('email')) return res.status(400).json({success: false, msg: 'email missing from request'});
     if (!req.body.hasOwnProperty('password')) return res.status(400).json({success: false, msg: 'password missing from request'});
@@ -121,6 +126,8 @@ router.post('/createNew', (req, res) => {
 
 // update a feature toggle on user by secretKey (Also used for single toggle deletion. Separate endpoint for that could be added later..)
 router.post('/updateOne', (req, res) => {
+    console.log("Call to featureToggles/updateOne");
+
     // Simple proper format checking
     if (!req.body.hasOwnProperty('email')) return res.status(400).json({success: false, msg: 'email missing from request'});
     if (!req.body.hasOwnProperty('password')) return res.status(400).json({success: false, msg: 'password missing from request'});
@@ -168,6 +175,8 @@ router.post('/updateOne', (req, res) => {
 
 // remove a feature toggle on user by secretKey
 router.post('/deleteOne', (req, res) => {
+    console.log("Call to featureToggles/deleteOne");
+
     // Simple proper format checking
     if (!req.body.hasOwnProperty('email')) return res.status(400).json({success: false, msg: 'email missing from request'});
     if (!req.body.hasOwnProperty('password')) return res.status(400).json({success: false, msg: 'password missing from request'});

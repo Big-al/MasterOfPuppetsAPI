@@ -1,3 +1,5 @@
+const PORT = process.env.PORT || 5000;
+
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -11,7 +13,6 @@ const app = express();
 const users = require('./routes/users');
 const featuretoggles = require('./routes/featuretoggles');
 const cleanJobs = require('./cron-jobs/Clean-Job');
-const port = 3000;
 
 // ====================== Connect to DB ======================
 mongoose.connect(env.connectionString, {
@@ -55,7 +56,7 @@ app.use('/featuretoggles', featuretoggles);
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
 
  // Initialize express
-app.listen(port, ()=> console.log('Server started on port number:' + port));
+app.listen(PORT, ()=> console.log('Server started on port number:' + PORT));
 
 // Initialize cron jobs
 cleanJobs.CronJob();

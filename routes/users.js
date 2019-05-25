@@ -7,6 +7,7 @@ const router = express.Router();
 
 // Register
 router.post('/register', (req, res) => {
+    console.log("Call to users/register");
     let newUser = new UserModel({
         name: req.body.name,
         email: req.body.email,
@@ -27,6 +28,7 @@ router.post('/register', (req, res) => {
 
 // Authenticate based on password and email
 router.post('/authenticate', (req, res) => {
+    console.log("Call to users/authenticate");
     const email = req.body.email;
     const password = req.body.password;
 
@@ -60,6 +62,9 @@ router.post('/authenticate', (req, res) => {
 });
 
 // gets the entire user profile (User object)
-router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res) => res.json(req.user));
+router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res) => {
+    console.log("Call to users/profile");
+    res.json(req.user)
+});
 
 module.exports = router;
