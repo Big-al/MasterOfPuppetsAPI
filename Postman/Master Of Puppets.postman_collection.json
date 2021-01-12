@@ -1,0 +1,304 @@
+{
+	"info": {
+		"_postman_id": "b34f84c3-e36c-4520-881a-6643314c1b7e",
+		"name": "Master Of Puppets",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "featureToggles",
+			"item": [
+				{
+					"name": "featuretoggles/getStatusAll",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"jdoe@gmail.com\",\n    \"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{LiveEndpoint}}/featuretoggles/getStatusAll",
+							"host": [
+								"{{LiveEndpoint}}"
+							],
+							"path": [
+								"featuretoggles",
+								"getStatusAll"
+							]
+						},
+						"description": "given an email and a password this returns all featuretoglles of the user. Usefull for large scale integrations."
+					},
+					"response": []
+				},
+				{
+					"name": "featuretoggles/getStatusOne",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"jdoe@gmail.com\",\n    \"password\": \"123456\",\n    \"secretKey\": \"39b100b4-9fda-4b3a-89ad-40ec1aba0562\"\n}"
+						},
+						"url": {
+							"raw": "{{LiveEndpoint}}/featuretoggles/getStatusOne",
+							"host": [
+								"{{LiveEndpoint}}"
+							],
+							"path": [
+								"featuretoggles",
+								"getStatusOne"
+							]
+						},
+						"description": "Gets the status of a single featuretoggle array given a user and a secretkey"
+					},
+					"response": []
+				},
+				{
+					"name": "featuretoggles/createNew",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"jdoe@gmail.com\",\n    \"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{LiveEndpoint}}/featuretoggles/createNew",
+							"host": [
+								"{{LiveEndpoint}}"
+							],
+							"path": [
+								"featuretoggles",
+								"createNew"
+							]
+						},
+						"description": "given a username and a password, returns a secretkey for a new featuretoggle"
+					},
+					"response": []
+				},
+				{
+					"name": "featuretoggles/updateOne",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"jdoe@gmail.com\",\n    \"password\": \"123456\",\n    \"secretKey\": \"39b100b4-9fda-4b3a-89ad-40ec1aba0562\",\n    \"toggles\": [\n        {\n            \"id\": \"TEST\",\n            \"state\": false\n        },\n        {\n            \"id\": \"TEST2\",\n            \"state\": true\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{LiveEndpoint}}/featuretoggles/updateOne",
+							"host": [
+								"{{LiveEndpoint}}"
+							],
+							"path": [
+								"featuretoggles",
+								"updateOne"
+							]
+						},
+						"description": "given email, password, secretkey and toggle[], it will replace the toggle array mathcing the secretkey."
+					},
+					"response": []
+				},
+				{
+					"name": "featuretoggles/deleteOne",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"jdoe@gmail.com\",\n    \"password\": \"123456\",\n    \"secretKey\": \"6050884b-7e68-41d2-a420-61f74cdb72ee\"\n}"
+						},
+						"url": {
+							"raw": "{{LiveEndpoint}}/featuretoggles/deleteOne",
+							"host": [
+								"{{LiveEndpoint}}"
+							],
+							"path": [
+								"featuretoggles",
+								"deleteOne"
+							]
+						},
+						"description": "given an email, password and secretkey it deletes the featuretoggle with the given secretkey"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "users/authenticate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"jdoe@gmail.com\",\n\t\"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{LiveEndpoint}}/users/authenticate",
+							"host": [
+								"{{LiveEndpoint}}"
+							],
+							"path": [
+								"users",
+								"authenticate"
+							]
+						},
+						"description": "given an email and a password, will return the users token for access to the site."
+					},
+					"response": []
+				},
+				{
+					"name": "users/register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John doe\",\n    \"email\": \"jdoe@gmail.com\",\n    \"pwHash\": \"123456\",\n    \"featureToggles\": [{\n        \"secretKey\": \"ec7sc9scc1-36d3-405c-8fcd-47d0e897c923\",\n        \"toggles\": [\n            {\n                \"id\": \"TEST\",\n                \"state\": true\n            },\n            {\n                \"id\": \"TEST2\",\n                \"state\": false\n            }\n        ]\n    }]\n}"
+						},
+						"url": {
+							"raw": "{{LiveEndpoint}}/users/register",
+							"host": [
+								"{{LiveEndpoint}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						},
+						"description": "Given a name, unique email, password, and a possible set of predefined featureToggles, this creates a new user and returns its token for access to the site."
+					},
+					"response": []
+				},
+				{
+					"name": "users/getProfile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVjZTcwNjhkZjliMDI5NDBhMGZlNjI3YyIsIm5hbWUiOiJBbGFuIiwiZW1haWwiOiJqZG9lQGdtYWlsLmNvbSIsInB3SGFzaCI6ImFkMGZiNjNkYjRkYTJjOGZiZTM0NmEwMGM2ZGZkOWI3ZGNhY2IyMDIzNTljMzk3YzUxYzRhYzk5M2M2MmQ0YmJiNmI2ZjdkNmMwMDQ3NGI0ZDg5YmY3Y2FlYmNjZjVkNjE0MzUxYjVkNjk2OTFlYTgzMzdhMjU3OTlkZDZjYTRjIiwiZmVhdHVyZVRvZ2dsZXMiOlt7InRvZ2dsZXMiOltdLCJfaWQiOiI1Y2U3MDY4ZGY5YjAyOTQwYTBmZTYyN2QiLCJzZWNyZXRLZXkiOiIzOWIxMDBiNC05ZmRhLTRiM2EtODlhZC00MGVjMWFiYTA1NjIifV0sIl9fdiI6MH0sImlhdCI6MTU1ODczOTgyMSwiZXhwIjoxNTU5MzQ0NjIxfQ.UpciHfV2x6Inw7ipBIsezPZGUs4o1ojOQSccp1PBDb4"
+							}
+						],
+						"url": {
+							"raw": "{{LiveEndpoint}}/users/profile/",
+							"host": [
+								"{{LiveEndpoint}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Random get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{LiveEndpoint}}/asdasdasdsa/asd",
+					"host": [
+						"{{LiveEndpoint}}"
+					],
+					"path": [
+						"asdasdasdsa",
+						"asd"
+					]
+				},
+				"description": "a browser trying to access the api host adress is redirected with an html page."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1486d4d5-1039-48ad-8c63-d5f3b9c9e2ec",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c4aaa4b3-1aec-4226-83a5-5b6492a45a6c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "c49555e9-7d32-4c61-b664-41828900898a",
+			"key": "LiveEndpoint",
+			"value": "https://masterofpuppets.herokuapp.com",
+			"type": "string"
+		},
+		{
+			"id": "abc290c9-a631-4dc0-bc45-533c9b261b74",
+			"key": "DevEndpoint",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	]
+}
